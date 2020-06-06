@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.wangqiang.mapper.EmployeeMapper">
+<mapper namespace="com.xuzihao.mapper.EmployeeMapper">
 
-    <resultMap id="EmployeeDTO" type="com.wangqiang.dto.EmployeeDTO">
+    <resultMap id="EmployeeDTO" type="com.xuzihao.dto.EmployeeDTO">
         <id column="id" jdbcType="INTEGER" property="id" />
         <result column="employee_name" jdbcType="VARCHAR" property="employeeName" />
         <result column="email" jdbcType="VARCHAR" property="email" />

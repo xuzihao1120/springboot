@@ -128,11 +128,11 @@ COMMIT;
 
 3. 建立基本结构和配置框架
 
-- com.wangqiang.pojo
-- com.wangqiang.dto
-- com.wangqiang.mapper
-- com.wangqiang.service   
-- com.wangqiang.config
+- com.xuzihao.pojo
+- com.xuzihao.dto
+- com.xuzihao.mapper
+- com.xuzihao.service   
+- com.xuzihao.config
 
 4. application.properties里配置数据库连接信息及Mapper映射文件信息
 
@@ -141,7 +141,7 @@ spring.datasource.username=root
 spring.datasource.password=root
 spring.datasource.url=jdbc:mysql://localhost:3306/springboot?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
-mybatis.type-aliases-package=com.wangqiang.pojo
+mybatis.type-aliases-package=com.xuzihao.pojo
 mybatis.mapper-locations=classpath:mapper/*.xml
 mybatis.configuration.map-underscore-to-camel-case=true
 spring.messages.basename=i18n.login
@@ -151,7 +151,7 @@ spring.messages.basename=i18n.login
 5. 测试数据库连接
 
 ```java
-package com.wangqiang;
+package com.xuzihao;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -185,7 +185,7 @@ class SpringbootCrudApplicationTests {
 1. 创建User实体
 
 ```java
-package com.wangqiang.pojo;
+package com.xuzihao.pojo;
 import lombok.Data;
 
 @Data
@@ -200,7 +200,7 @@ public class User {
 2. 创建Department实体
 
 ```java
-package com.wangqiang.pojo;
+package com.xuzihao.pojo;
 import lombok.Data;
 
 @Data
@@ -213,7 +213,7 @@ public class Department {
 3. 创建Employee实体
 
 ```java
-package com.wangqiang.pojo;
+package com.xuzihao.pojo;
 import lombok.Data;
 import java.sql.Date;
 
@@ -231,7 +231,7 @@ public class Employee {
 4. 创建EmployeeDTO实体
 
 ```java
-package com.wangqiang.dto;
+package com.xuzihao.dto;
 import lombok.Data;
 import java.sql.Date;
 
@@ -250,15 +250,15 @@ public class EmployeeDTO {
 
 文件存放目录：
 
-com.wangqiang.mapper 相关接口
+com.xuzihao.mapper 相关接口
 
 resources/mapper 相关mapper.xml
 
 1. 编写User的Mapper接口：UserMapper
 
 ```java
-package com.wangqiang.mapper;
-import com.wangqiang.pojo.User;
+package com.xuzihao.mapper;
+import com.xuzihao.pojo.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -278,7 +278,7 @@ public interface UserMapper {
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.wangqiang.mapper.UserMapper">
+<mapper namespace="com.xuzihao.mapper.UserMapper">
     <select id="selectPasswordByName" resultType="User">
     select * from user where user_name = #{userName} and password = #{password}
 </select>
@@ -288,8 +288,8 @@ public interface UserMapper {
 3. 编写Department的Mapper接口：DepaertmentMapper
 
 ```java
-package com.wangqiang.mapper;
-import com.wangqiang.pojo.Department;
+package com.xuzihao.mapper;
+import com.xuzihao.pojo.Department;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 import java.util.List;
@@ -308,7 +308,7 @@ public interface DepartmentMapper {
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.wangqiang.mapper.DepartmentMapper">
+<mapper namespace="com.xuzihao.mapper.DepartmentMapper">
     <select id="selectAllDepartment" resultType="Department">
     select * from department
   </select>
@@ -318,9 +318,9 @@ public interface DepartmentMapper {
 5. 编写Employee的Mapper接口：EmployeeMapper
 
 ```java
-package com.wangqiang.mapper;
-import com.wangqiang.dto.EmployeeDTO;
-import com.wangqiang.pojo.Employee;
+package com.xuzihao.mapper;
+import com.xuzihao.dto.EmployeeDTO;
+import com.xuzihao.pojo.Employee;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 import java.util.List;
@@ -348,9 +348,9 @@ public interface EmployeeMapper {
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.wangqiang.mapper.EmployeeMapper">
+<mapper namespace="com.xuzihao.mapper.EmployeeMapper">
 
-    <resultMap id="EmployeeDTO" type="com.wangqiang.dto.EmployeeDTO">
+    <resultMap id="EmployeeDTO" type="com.xuzihao.dto.EmployeeDTO">
         <id column="id" jdbcType="INTEGER" property="id" />
         <result column="employee_name" jdbcType="VARCHAR" property="employeeName" />
         <result column="email" jdbcType="VARCHAR" property="email" />
@@ -388,14 +388,14 @@ public interface EmployeeMapper {
 
 #### Service层
 
-com.wangqiang.service 
+com.xuzihao.service 
 
 1. EmployeeService接口：
 
 ```java
-package com.wangqiang.service;
-import com.wangqiang.dto.EmployeeDTO;
-import com.wangqiang.pojo.Employee;
+package com.xuzihao.service;
+import com.xuzihao.dto.EmployeeDTO;
+import com.xuzihao.pojo.Employee;
 import java.util.List;
 
 public interface EmployeeService {
@@ -455,8 +455,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 3. DepartmentService接口
 
 ```
-package com.wangqiang.service;
-import com.wangqiang.pojo.Department;
+package com.xuzihao.service;
+import com.xuzihao.pojo.Department;
 import java.util.List;
 
 public interface DepartmentService {
@@ -467,9 +467,9 @@ public interface DepartmentService {
 3. DepartmentImpl实现类：
 
 ```java
-package com.wangqiang.service;
-import com.wangqiang.mapper.DepartmentMapper;
-import com.wangqiang.pojo.Department;
+package com.xuzihao.service;
+import com.xuzihao.mapper.DepartmentMapper;
+import com.xuzihao.pojo.Department;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -490,8 +490,8 @@ public class DepartmentServiceImpl implements DepartmentService {
 4. UserService接口
 
 ```java
-package com.wangqiang.service;
-import com.wangqiang.pojo.User;
+package com.xuzihao.service;
+import com.xuzihao.pojo.User;
 
 public interface UserService {
     User selectPasswordByName(String userName,String password);
@@ -501,9 +501,9 @@ public interface UserService {
 5. UserServiceImpl实现类
 
 ```java
-package com.wangqiang.service;
-import com.wangqiang.mapper.UserMapper;
-import com.wangqiang.pojo.User;
+package com.xuzihao.service;
+import com.xuzihao.mapper.UserMapper;
+import com.xuzihao.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -602,9 +602,9 @@ public class UserServiceImpl implements UserService {
 1. 登陆页LoginController
 
 ```java
-package com.wangqiang.controller;
-import com.wangqiang.pojo.User;
-import com.wangqiang.service.UserService;
+package com.xuzihao.controller;
+import com.xuzihao.pojo.User;
+import com.xuzihao.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -648,12 +648,12 @@ public class LoginController {
 2. 员工信息Controller
 
 ```java
-package com.wangqiang.controller;
-import com.wangqiang.dto.EmployeeDTO;
-import com.wangqiang.pojo.Department;
-import com.wangqiang.pojo.Employee;
-import com.wangqiang.service.DepartmentService;
-import com.wangqiang.service.EmployeeService;
+package com.xuzihao.controller;
+import com.xuzihao.dto.EmployeeDTO;
+import com.xuzihao.pojo.Department;
+import com.xuzihao.pojo.Employee;
+import com.xuzihao.service.DepartmentService;
+import com.xuzihao.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -733,7 +733,7 @@ public class EmploeeController {
 1. 编写Interceptor拦截器配置
 
 ```java
-package com.wangqiang.config;
+package com.xuzihao.config;
 import org.springframework.web.servlet.HandlerInterceptor;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -757,7 +757,7 @@ public class MyHandlerInterceptor implements HandlerInterceptor {
 2. 编写国际化配置文件
 
 ```java
-package com.wangqiang.config;
+package com.xuzihao.config;
 import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.LocaleResolver;
 import javax.servlet.http.HttpServletRequest;
@@ -786,7 +786,7 @@ public class MyLocaleResolver implements LocaleResolver {
 3. 编写WebMvc文件，将上述配置到MvcConfiguration中
 
 ```java
-package com.wangqiang.config;
+package com.xuzihao.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.LocaleResolver;
