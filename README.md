@@ -1318,8 +1318,4 @@ public class MyWebMvcConfig implements WebMvcConfigurer {
 					</form>
 
 </html>
-```
-
-### 参考资料
-
-[狂神说Java](https://www.bilibili.com/video/av75233634?p=20)   
+```  
