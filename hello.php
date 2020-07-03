@@ -1,3 +1,3 @@
 <?php
-echo 'xuzihao';
+echo 'xuzihao:aaaaa';
 ?>
