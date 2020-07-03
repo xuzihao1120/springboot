@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="de586260-4735-458a-bfad-6d2f2f2603e9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/README" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hello.php" afterDir="false" />
-    </list>
+    <list default="true" id="de586260-4735-458a-bfad-6d2f2f2603e9" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,7 +31,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1593761300878</updated>
-      <workItem from="1593761302927" duration="798000" />
+      <workItem from="1593761302927" duration="1413000" />
     </task>
     <servers />
   </component>
@@ -46,5 +43,9 @@
       <screen x="0" y="0" width="1280" height="720" />
     </state>
     <state x="384" y="161" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.720@0.0.1280.720" timestamp="1593761488137" />
+    <state x="233" y="93" key="Vcs.Push.Dialog.v2" timestamp="1593763204580">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="233" y="93" key="Vcs.Push.Dialog.v2/0.0.1280.720@0.0.1280.720" timestamp="1593763204580" />
   </component>
 </project>
